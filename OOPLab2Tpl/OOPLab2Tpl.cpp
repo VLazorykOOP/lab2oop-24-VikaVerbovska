@@ -20,11 +20,11 @@ int main1() {
 
 // Функція для доповнення рядків пробілами до 32 символів
 void padStrings(char text[][33], int numStrings) {
-    for (int i = 0; i < numStrings; ++i) {
-        int len = strlen(text[i]);
-        if (len < 32) {
-            for (int j = len; j < 32; ++j) {
-                text[i][j] = ' ';
+    for (int i = 0; i < numStrings; ++i) { //Цикл проходить через кожен рядок масиву text.
+        int len = strlen(text[i]); // Отримання довжини поточного рядка
+        if (len < 32) { 
+            for (int j = len; j < 32; ++j) { //Цикл додає пробіли до кінця рядка, починаючи з кількості символів, рівної поточній довжині len, і досягаючи 32 символів.
+                text[i][j] = ' ';// Доповнення рядка пробілами до 32 символів
             }
             text[i][32] = '\0'; // Закінчуємо рядок
         }
@@ -35,7 +35,7 @@ void padStrings(char text[][33], int numStrings) {
 void encryptText(char text[][33], int numStrings) {
     for (int i = 0; i < numStrings; ++i) {
         for (int j = 0; j < 32; ++j) {
-            char character = text[i][j];
+            char character = text[i][j]; // Отримання символу з рядка
             unsigned short encryptedChar = 0;
 
             // Позиція символу в рядку (5 біт)
