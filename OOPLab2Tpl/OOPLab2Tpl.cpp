@@ -32,7 +32,7 @@ void padStrings(char text[][33], int numStrings) {
 }
 
 // Функція для шифрування тексту
-void encryptText(char text[][33], int numStrings) {
+void encryptText(char text[][33], int numStrings, unsigned short Out[][33]) {
     for (int i = 0; i < numStrings; ++i) {
         for (int j = 0; j < 32; ++j) {
             char character = text[i][j]; // Отримання символу з рядка
@@ -56,6 +56,7 @@ void encryptText(char text[][33], int numStrings) {
 
             // Вивід результату
             cout << hex << encryptedChar << " ";
+             Out[i][j] =encryptedChar;
         }
         cout << endl;
     }
@@ -96,9 +97,9 @@ int main() {
         }
 
         padStrings(text, 4);
-
+     unsigned short Cod [4][33];
         cout << "Шифрований текст:\n";
-        encryptText(text, 4);
+        encryptText(text, 4, Cod);
     }
 }
 
