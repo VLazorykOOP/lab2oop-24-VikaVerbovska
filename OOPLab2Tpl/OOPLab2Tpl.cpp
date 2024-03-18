@@ -62,6 +62,8 @@ void encryptText(char text[][33], int numStrings, unsigned short Out[][33]) {
     }
 }
 
+
+
 int main() {
     setlocale(LC_CTYPE, "ukr");
 
