@@ -61,6 +61,32 @@ void encryptText(char text[][33], int numStrings, unsigned short Out[][33]) {
         cout << endl;
     }
 }
+void decryptText(unsigned short In[][33], int numStrings, char decryptedText[][33]) {
+    for (int i = 0; i < numStrings; ++i) {
+        for (int j = 0; j < 32; ++j) {
+            unsigned short encryptedChar = In[i][j];
+            int parityBit = (encryptedChar >> 15) & 0x1; // Відокремлення біту парності
+            unsigned char character = (encryptedChar >> 7) & 0xFF; // Відновлення ASCII-коду символу
+            int row = (encryptedChar >> 5) & 0x03; // Відокремлення номеру рядка
+            int position = encryptedChar & 0x1F; // Відокремлення позиції символу в рядку
+
+            // Відновлення символу
+            decryptedText[row][position] = character;
+
+            // Перевірка біту парності
+            int calculatedParityBit = 0;
+            for (int k = 0; k < 15; ++k) {
+                calculatedParityBit ^= (encryptedChar >> k) & 0x1;
+            }
+
+            // Якщо біти парності не співпадають, можна виконати відповідні дії
+
+            cout << decryptedText[row][position];
+        }
+        cout << endl;
+    }
+}
+
 
 
 
@@ -102,6 +128,11 @@ int main() {
      unsigned short Cod [4][33];
         cout << "Шифрований текст:\n";
         encryptText(text, 4, Cod);
+
+        char decryptedText[4][33];
+        cout << "Розшифрований текст:\n";
+        decryptText(Cod, 4, decryptedText);
+
     }
 }
 
