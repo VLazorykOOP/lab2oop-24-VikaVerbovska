@@ -92,7 +92,6 @@ void decryptText(unsigned short In[][33], int numStrings, char decryptedText[][3
 int main() {
     setlocale(LC_CTYPE, "ukr");
 
-    //Створюємо змінні та пояснюємо завдання
     int task;
     std::cout << "Обчислення виразiв з використанням побiтових операцiй.Задано цiлi числа a, b, c та d.Обчислити вираз без використання операцiй множення та дiлення(замiнивши на їх операцiй зсувiв)." << endl;
     std::cout << endl;
@@ -105,11 +104,9 @@ int main() {
     std::cout << " 15 бiт - бiт парностi(1 бiт)." << endl;
     std::cout << endl;
 
-    //Вибір завдання
     std::cout << "Вибрати завдання 1 або 2:" << endl;
     std::cin >> task;
 
-    //Виклик функції
     if (task == 1) {
         main1();
     }
