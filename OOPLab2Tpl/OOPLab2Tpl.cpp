@@ -79,7 +79,6 @@ void decryptText(unsigned short In[][33], int numStrings, char decryptedText[][3
                 calculatedParityBit ^= (encryptedChar >> k) & 0x1;
             }
 
-            // Якщо біти парності не співпадають, можна виконати відповідні дії
 
             cout << decryptedText[row][position];
         }
